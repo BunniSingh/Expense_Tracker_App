@@ -1,0 +1,20 @@
+{
+  "name": "expance-tracker",
+  "version": "1.0.0",
+  "description": "This is track your expance you expance monthly yearly and so on",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Banti Singh",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.1"
+  }
+}
