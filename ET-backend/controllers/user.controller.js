@@ -27,11 +27,11 @@ let userRegister = async (req, res) => {
     }
 
     let hasedPassword = await bcrypt.hash(password, 10);
-    await UserModel.create({ ...req.body, password: hasedPassword });
+    // await UserModel.create({ ...req.body, password: hasedPassword });
 
 
     const html = `
-      <h3>Welcome, ${firstName} 👋</h3>
+      <h3>Welcome, ${userName} 👋</h3>
       <p>Thanks for joining <strong>Expense Tracker</strong>!</p>
       <p>Start adding and managing your expenses like a pro 💼.</p>
       <br/>
