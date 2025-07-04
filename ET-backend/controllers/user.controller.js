@@ -2,6 +2,7 @@ const UserModel = require("../models/user.model");
 require("dotenv").config();
 let bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
+const sendMail = require("../utils/sendMail");
 
 
 
@@ -17,7 +18,7 @@ let userRegister = async (req, res) => {
     }
 
     const user = await UserModel.findOne({ email: email });
-    console.log(user)
+
     if (user) {
       return res.status(401).json({
         success: false,
@@ -27,6 +28,18 @@ let userRegister = async (req, res) => {
 
     let hasedPassword = await bcrypt.hash(password, 10);
     await UserModel.create({ ...req.body, password: hasedPassword });
+
+
+    const html = `
+      <h3>Welcome, ${firstName} 👋</h3>
+      <p>Thanks for joining <strong>Expense Tracker</strong>!</p>
+      <p>Start adding and managing your expenses like a pro 💼.</p>
+      <br/>
+      <p>Regards,<br/>The Expense Tracker Team</p>
+    `;
+
+    await sendMail(email, '🎉 Welcome to Expense Tracker!', html);
+
     res.json({
       success: true,
       message: "User register successfully",
