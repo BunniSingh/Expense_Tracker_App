@@ -49,7 +49,7 @@ const getExpenses = async (req, res) => {
   }
 };
 
-// ✅ Get a single expense by ID
+// Get a single expense by ID
 const getExpenseById = async (req, res) => {
   try {
     const expense = await ExpenseModel.findOne({
@@ -75,7 +75,8 @@ const getExpenseById = async (req, res) => {
   }
 };
 
-// ✅ Update expense
+/*
+// Update expense
 const updateExpense = async (req, res) => {
   try {
     const expense = await ExpenseModel.findOneAndUpdate(
@@ -105,7 +106,7 @@ const updateExpense = async (req, res) => {
   }
 };
 
-// ✅ Delete expense
+// Delete expense
 const deleteExpense = async (req, res) => {
   try {
     const deleted = await ExpenseModel.findOneAndDelete({
@@ -133,6 +134,8 @@ const deleteExpense = async (req, res) => {
       });
   }
 };
+
+*/
 
 module.exports = {
   createExpense,
